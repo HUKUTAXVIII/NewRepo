@@ -32,8 +32,10 @@ namespace FirstRepo
         /// </summary>
         private void InitializeComponent()
         {
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.components = new System.ComponentModel.Container();
             this.TimeLabel = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // TimeLabel
@@ -44,7 +46,19 @@ namespace FirstRepo
             this.TimeLabel.Name = "TimeLabel";
             this.TimeLabel.Size = new System.Drawing.Size(0, 31);
             this.TimeLabel.TabIndex = 0;
-            //this.TimeLabel.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 10;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Location = new System.Drawing.Point(236, 128);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(322, 185);
+            this.panel1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -52,16 +66,14 @@ namespace FirstRepo
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.TimeLabel);
+            this.Controls.Add(this.panel1);
+            this.TimeLabel.BackColor = this.panel1.BackColor;
+
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
-
-            timer = new Timer();
-            timer.Tick += Timer_Tick;
-            timer.Interval = 10;
-            timer.Start();
-         
 
         }
 
@@ -76,6 +88,7 @@ namespace FirstRepo
         }
         private Timer timer;
         private System.Windows.Forms.Label TimeLabel;
+        private Panel panel1;
     }
 }
 
