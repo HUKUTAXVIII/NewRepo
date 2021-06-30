@@ -32,6 +32,10 @@
             this.BackColorButton = new System.Windows.Forms.Button();
             this.PanelColorButton = new System.Windows.Forms.Button();
             this.OkButton = new System.Windows.Forms.Button();
+            this.HourseCheck = new System.Windows.Forms.CheckBox();
+            this.MinutesCheck = new System.Windows.Forms.CheckBox();
+            this.SecondsCheck = new System.Windows.Forms.CheckBox();
+            this.MillisecondsCheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // ForeColorButton
@@ -66,7 +70,7 @@
             // 
             // OkButton
             // 
-            this.OkButton.Location = new System.Drawing.Point(175, 100);
+            this.OkButton.Location = new System.Drawing.Point(174, 175);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(75, 23);
             this.OkButton.TabIndex = 3;
@@ -74,11 +78,55 @@
             this.OkButton.UseVisualStyleBackColor = true;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
+            // HourseCheck
+            // 
+            this.HourseCheck.AutoSize = true;
+            this.HourseCheck.Location = new System.Drawing.Point(12, 77);
+            this.HourseCheck.Name = "HourseCheck";
+            this.HourseCheck.Size = new System.Drawing.Size(60, 17);
+            this.HourseCheck.TabIndex = 4;
+            this.HourseCheck.Text = "Hourse";
+            this.HourseCheck.UseVisualStyleBackColor = true;
+            // 
+            // MinutesCheck
+            // 
+            this.MinutesCheck.AutoSize = true;
+            this.MinutesCheck.Location = new System.Drawing.Point(12, 112);
+            this.MinutesCheck.Name = "MinutesCheck";
+            this.MinutesCheck.Size = new System.Drawing.Size(63, 17);
+            this.MinutesCheck.TabIndex = 5;
+            this.MinutesCheck.Text = "Minutes";
+            this.MinutesCheck.UseVisualStyleBackColor = true;
+            // 
+            // SecondsCheck
+            // 
+            this.SecondsCheck.AutoSize = true;
+            this.SecondsCheck.Location = new System.Drawing.Point(169, 77);
+            this.SecondsCheck.Name = "SecondsCheck";
+            this.SecondsCheck.Size = new System.Drawing.Size(68, 17);
+            this.SecondsCheck.TabIndex = 6;
+            this.SecondsCheck.Text = "Seconds";
+            this.SecondsCheck.UseVisualStyleBackColor = true;
+            // 
+            // MillisecondsCheck
+            // 
+            this.MillisecondsCheck.AutoSize = true;
+            this.MillisecondsCheck.Location = new System.Drawing.Point(169, 112);
+            this.MillisecondsCheck.Name = "MillisecondsCheck";
+            this.MillisecondsCheck.Size = new System.Drawing.Size(83, 17);
+            this.MillisecondsCheck.TabIndex = 7;
+            this.MillisecondsCheck.Text = "Milliseconds";
+            this.MillisecondsCheck.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 135);
+            this.ClientSize = new System.Drawing.Size(263, 210);
+            this.Controls.Add(this.MillisecondsCheck);
+            this.Controls.Add(this.SecondsCheck);
+            this.Controls.Add(this.MinutesCheck);
+            this.Controls.Add(this.HourseCheck);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.PanelColorButton);
             this.Controls.Add(this.BackColorButton);
@@ -86,6 +134,7 @@
             this.Name = "SettingsForm";
             this.Text = "SettingsForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -95,5 +144,9 @@
         private System.Windows.Forms.Button BackColorButton;
         private System.Windows.Forms.Button PanelColorButton;
         private System.Windows.Forms.Button OkButton;
+        public System.Windows.Forms.CheckBox HourseCheck;
+        public System.Windows.Forms.CheckBox MinutesCheck;
+        public System.Windows.Forms.CheckBox SecondsCheck;
+        public System.Windows.Forms.CheckBox MillisecondsCheck;
     }
 }

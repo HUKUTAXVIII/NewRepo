@@ -60,7 +60,8 @@ namespace FirstRepo
             // timer
             // 
             this.timer.Enabled = true;
-            this.timer.Interval = 10;
+            this.timer.Interval = 100;
+            this.timer.Tick += Timer_Tick;
             // 
             // SettingsButton
             // 
@@ -96,7 +97,25 @@ namespace FirstRepo
 
         #endregion
         private void UpdateTime() {
-            this.TimeLabel.Text = DateTime.Now.ToShortTimeString();
+            //this.TimeLabel.Text = DateTime.Now.ToShortTimeString();
+            this.TimeLabel.Text = "";
+            if (hasHourse) {
+                this.TimeLabel.Text += DateTime.Now.Hour+ ":";
+            }
+            if (hasMinutes)
+            {
+                this.TimeLabel.Text += DateTime.Now.Minute + ":";
+            }
+            if (hasSeconds)
+            {
+                this.TimeLabel.Text += DateTime.Now.Second + ":";
+            }
+            if (hasMilliseconds)
+            {
+                this.TimeLabel.Text += DateTime.Now.Millisecond + ":";
+            }
+            this.TimeLabel.Text = this.TimeLabel.Text.Remove(this.TimeLabel.Text.Length-1,1);
+
             this.TimeLabel.BackColor = this.panel1.BackColor;
         }
         private Timer timer;
