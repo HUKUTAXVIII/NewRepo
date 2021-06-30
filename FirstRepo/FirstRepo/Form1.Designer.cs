@@ -34,23 +34,20 @@ namespace FirstRepo
         {
             this.components = new System.ComponentModel.Container();
             this.TimeLabel = new System.Windows.Forms.Label();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.SettingsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TimeLabel
             // 
             this.TimeLabel.AutoSize = true;
+            this.TimeLabel.BackColor = this.panel1.BackColor;
             this.TimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.TimeLabel.Location = new System.Drawing.Point(352, 218);
             this.TimeLabel.Name = "TimeLabel";
             this.TimeLabel.Size = new System.Drawing.Size(0, 31);
             this.TimeLabel.TabIndex = 0;
-            // 
-            // timer
-            // 
-            this.timer.Enabled = true;
-            this.timer.Interval = 10;
             // 
             // panel1
             // 
@@ -60,16 +57,31 @@ namespace FirstRepo
             this.panel1.Size = new System.Drawing.Size(322, 185);
             this.panel1.TabIndex = 1;
             // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 10;
+            // 
+            // SettingsButton
+            // 
+            this.SettingsButton.Location = new System.Drawing.Point(713, 12);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(75, 23);
+            this.SettingsButton.TabIndex = 2;
+            this.SettingsButton.Text = "Settings";
+            this.SettingsButton.UseVisualStyleBackColor = true;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SettingsButton);
             this.Controls.Add(this.TimeLabel);
             this.Controls.Add(this.panel1);
-            this.TimeLabel.BackColor = this.panel1.BackColor;
-
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.TimeLabel.BackColor = this.panel1.BackColor;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -85,10 +97,12 @@ namespace FirstRepo
         #endregion
         private void UpdateTime() {
             this.TimeLabel.Text = DateTime.Now.ToShortTimeString();
+            this.TimeLabel.BackColor = this.panel1.BackColor;
         }
         private Timer timer;
         private System.Windows.Forms.Label TimeLabel;
         private Panel panel1;
+        private Button SettingsButton;
     }
 }
 

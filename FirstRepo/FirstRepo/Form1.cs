@@ -20,6 +20,18 @@ namespace FirstRepo
 
         }
 
-
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            using (SettingsForm form = new SettingsForm()) {
+                form.panel = this.panel1.BackColor;
+                form.fore = this.TimeLabel.ForeColor;
+                form.back = this.BackColor;
+                form.ShowDialog();
+                this.panel1.BackColor = form.panel;
+                this.TimeLabel.ForeColor = form.fore;
+                this.TimeLabel.BackColor = form.panel;
+                this.BackColor = form.back;
+            }
+        }
     }
 }
