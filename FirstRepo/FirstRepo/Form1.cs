@@ -15,6 +15,11 @@ namespace FirstRepo
         public Form1()
         {
             InitializeComponent();
+
+            this.TimeLabel.Text = DateTime.Now.ToShortTimeString();
+
         }
+
+
     }
 }
