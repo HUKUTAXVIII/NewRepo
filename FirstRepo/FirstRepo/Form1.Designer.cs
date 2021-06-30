@@ -1,6 +1,9 @@
 ﻿
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace FirstRepo
 {
@@ -17,10 +20,13 @@ namespace FirstRepo
         /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+
+
+
+                if (disposing && (components != null))
+                {
+                    components.Dispose();
+                }
             base.Dispose(disposing);
         }
 
@@ -88,6 +94,22 @@ namespace FirstRepo
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            this.FormClosed += Form1_FormClosed;
+
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(List<bool>));
+            List<bool> TimeSettings = new List<bool>();
+            TimeSettings.Add(hasHourse);
+            TimeSettings.Add(hasMinutes);
+            TimeSettings.Add(hasSeconds);
+            TimeSettings.Add(hasMilliseconds);
+            using (FileStream fs = new FileStream("Settings.xml", FileMode.OpenOrCreate))
+            {
+                xml.Serialize(fs, TimeSettings);
+            }
         }
 
         private void Timer_Tick(object sender, EventArgs e)
